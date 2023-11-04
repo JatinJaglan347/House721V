@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e2c728a258.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>House Rent</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Room Rent</h2>
+        <div class="form-group">
+            <label for="roomCode">Room Code:</label>
+            <input type="text" id="roomCode" name="roomCode">
+        </div>
+        <button id="fetchData">Fetch Rent</button>
+        <div id="loading" style="display: none;">Loading...</div>
+        <div id="dataDisplay"></div>
+
+
+        <div class="box">
+            <div class="subcontainer">
+                <h3>Contact</h3>
+                <p><a href="tel:+918427039806"><i class="fa-solid fa-phone"></i> +91-8427039806</a></p>
+                <p><a href="tel:+919466138979"><i class="fa-solid fa-phone"></i> +91-9466138979</a></p>
+                <h5>Address</h5>
+                <p><i class="fa-solid fa-location-dot"></i> #721/V Kishangarh, Chandigarh 
+                    160101</p>
+            </div>
+        </div>
+        <div class="box1">
+            <p>⭐Enjoy the convenience of accessing your rent details with ease! If you have any other requests or need further assistance, feel free to reach out. 🤗</p>
+        </div>
+        <button id="toggleWarning">Warning  <i class="fa-solid fa-caret-down"></i></button>
+        <div class="warning-box">
+            <p>1️⃣Please be aware that the link is for viewing your rent only and does not offer payment options. Kindly continue using your previous methods to make your rent payments. After you've made your payment, remember to inform us. 💰</p>
+            <p>2️⃣Keep your room code and the link confidential. Only share it with your trusted roommates to maintain privacy and security. 🤐🔒</p>    
+        </div>
+        
+        
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#fetchData").click(function () {
+            var roomCode = $("#roomCode").val();
+            
+            // Show the loading message
+            $("#loading").show();
+            
+            $.get("https://script.google.com/macros/s/AKfycbxCYaIqJMdx0FtZOW2-8YOzBeUZzO4pjTHM88DSKxROoJuJ8mejuxdJDEqbRGP-ihb8VQ/exec?sheetName=" + roomCode, function (response) {
+                if (response && response.data && Array.isArray(response.data) && response.data.length > 0) {
+                    var data = response.data[0]; // Extract the first row of data
+    
+                    // Assign names to the data elements
+                    var roomCode = data[0];
+                    var rent = data[1];
+                    var water = data[2];
+                    var cleanliness = data[3];
+                   // var units = data[4];
+                    var unitsConsumed = data[5];
+                   // var unitPrice = data[6];
+                    var electricityPrice = data[7];
+                    var fine = data[8];
+                    var month = data[9];
+                    var total = data[10];
+    
+                    // Display the data in HTML
+                    //var html = "<h3>Room Information for Room Code: " + roomCode + "</h3>";
+                    var html = "<table>";
+                    html +="<tr><td style='font-weight: bold; font-size: 1.7em; text-align: center;'>" + month +  " Rent</td></tr>" ;
+                    html += "</table>";
+                    html += "<table>";
+                    //html += "<tr><th>Attribute</th><th>Prise</th></tr>";
+                    html += "<tr><td>Rent</td><td> ₹" + rent + "</td></tr>";
+                    html += "<tr><td>Water</td><td> ₹" + water + "</td></tr>";
+                    html += "<tr><td>Cleanliness</td><td> ₹" + cleanliness + "</td></tr>";
+                    //html += "<tr><td>Units</td><td>" + units + "</td></tr>";
+                    html += "<tr><td>Units Consumed</td><td>" + unitsConsumed + "</td></tr>";
+                    //html += "<tr><td>Unit Price</td><td>" + unitPrice + "</td></tr>";
+                    html += "<tr><td>Electricity Bill</td><td> ₹" + electricityPrice + "</td></tr>";
+                    html += "<tr><td>Fine</td><td> ₹" + fine + "</td></tr>";
+                    //html += "<tr><td>Month</td><td>" + month + "</td></tr>";
+                    //html += "<tr><td>Total</td><td> ₹" + total + "</td></tr>";
+                    html += "<tr><td style='font-weight: bold; font-size: 1.2em;'>Total</td><td style='font-weight: bold; font-size: 1.2em;'> ₹" + total + "</td></tr>";
+                    html += "</table>";
+    
+                    $("#dataDisplay").html(html);
+                    
+                    // Hide the loading message
+                    $("#loading").hide();
+                } else {
+                    $("#dataDisplay").html("Room data not found.");
+                    // Hide the loading message
+                    $("#loading").hide();
+                }
+            });
+        });
+        $("#toggleWarning").click(function () {
+            $(".warning-box").slideToggle();
+        });
+    });
+    
+</script>
+    
+</body>
+</html>

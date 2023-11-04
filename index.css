@@ -1,0 +1,156 @@
+/* Add your styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+h2 {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#dataDisplay {
+    margin-top: 20px;
+}
+
+
+/* Style the table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Style table data rows */
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
+  
+  /* Style alternate rows with a different background color */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+
+  .subcontainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.fa-phone, .fa-location-dot {
+    color: #007bff;
+    margin-right: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #007bff;
+}
+h3 {
+    margin-top: 0px;
+    margin-bottom: 7px;
+}
+h5 {
+    font-size: 1.2em;
+    margin-bottom: 7px;
+}
+.box {
+    margin-top: 20px;
+    border: 2px solid #007bff;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+
+.warning-box {
+    display: none;
+    border: 2px solid #f00; /* Red border for warning */
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #fdd; /* Light red background */
+    border-radius: 10px;
+
+}
+
+#toggleWarning {
+    display: block;
+    margin: 10px auto;
+    font-size: 1em;
+    background-color: #f00; /* Red button color */
+    color: #fff;
+    padding: 12px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%; /* Set the width to 100% */
+}
+#toggleWarning:hover {
+    background-color: #a4344c;
+}
+.box1 {
+    margin-top: 20px;
+    border: 2px solid #11ff00;
+    padding-top: 7px;
+    padding-bottom: 7x;
+    padding-left:10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
